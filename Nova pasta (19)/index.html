@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armazenamento de Arquivos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Armazenamento de Arquivos</h1>
+            <div class="storage-info">
+                <div class="progress-bar">
+                    <div class="progress" id="storage-progress"></div>
+                </div>
+                <p><span id="storage-used">0</span> GB de <span id="storage-total">999</span> GB usados</p>
+            </div>
+        </header>
+        
+        <main>
+            <section class="upload-section">
+                <h2>Upload de Arquivos</h2>
+                <p>Tamanho máximo por arquivo: 29 GB</p>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <div class="file-input-container">
+                        <input type="file" id="file-input" accept=".jpg,.jpeg,.png,.gif,.mp4,.avi,.mov,.pdf">
+                        <label for="file-input" class="file-input-label">Selecionar Arquivo</label>
+                        <span id="file-name">Nenhum arquivo selecionado</span>
+                    </div>
+                    <button type="submit" id="upload-btn">Upload</button>
+                </form>
+                <div id="upload-progress-container" class="hidden">
+                    <div class="progress-bar">
+                        <div id="upload-progress" class="progress"></div>
+                    </div>
+                    <p id="upload-status">Enviando...</p>
+                </div>
+            </section>
+
+            <section class="files-section">
+                <h2>Meus Arquivos</h2>
+                <div class="file-filters">
+                    <button data-filter="all" class="filter-btn active">Todos</button>
+                    <button data-filter="image" class="filter-btn">Imagens</button>
+                    <button data-filter="video" class="filter-btn">Vídeos</button>
+                    <button data-filter="pdf" class="filter-btn">PDFs</button>
+                </div>
+                <div id="file-list" class="file-list">
+                    <!-- Os arquivos serão carregados dinamicamente -->
+                    <div class="loading">Carregando arquivos...</div>
+                </div>
+            </section>
+        </main>
+
+        <div id="viewer-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="viewer-title"></h2>
+                <div id="viewer-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
